@@ -10,3 +10,4 @@ hooks:
   post-deploy:
     - graphql get-schema
     - prisma-binding -i generated/prisma.graphql -l typescript -b generated/prisma-binding/index.ts
+    - graphql-binding -i src/bindings/server-local.ts -l typescript -b generated/server-local/index.ts
