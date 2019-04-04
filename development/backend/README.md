@@ -1,4 +1,4 @@
-# otrade
+# otrade backend
 
 ## Project setup
 ```
@@ -7,7 +7,7 @@ yarn install
 ### Tools
 * Docker
 * Docker-compose
-* 
+
 # Developing
 ## Running the development environmnet
 Bring up the database
