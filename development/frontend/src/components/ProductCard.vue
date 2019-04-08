@@ -9,7 +9,7 @@
       <div class="media">
         <div class="media-content">
           <p class="title is-4">{{ title }}</p>
-          <p class="subtitle is-6">{{ price }}</p>
+          <p class="subtitle is-6">Price: {{ price }}</p>
         </div>
       </div>
     </div>
@@ -18,7 +18,11 @@
 
 <script lang="ts">
 import Vue from 'vue';
-
+export interface ProductCardType {
+  title: string;
+  price: number;
+  imgUrl: string;
+}
 export default Vue.extend({
   name: 'ProductCard',
   props: {
