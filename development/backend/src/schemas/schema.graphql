@@ -1,5 +1,6 @@
 # import * from "models"
 
 type Query {
-    test: String!
+    getAllListings: [Listing!]!
+    getListing(id: ID!): Listing
 }
