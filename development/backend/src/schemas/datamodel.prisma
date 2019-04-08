@@ -1,4 +1,6 @@
-type User {
+type Listing {
   id: ID! @unique
-  name: String!
+  title: String!
+  description: String!
+  price: Int!
 }
