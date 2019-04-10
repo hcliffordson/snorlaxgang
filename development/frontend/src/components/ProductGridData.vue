@@ -16,6 +16,7 @@ query {
     price
     title
     description
+    id
   }
 }
 `;
