@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ProductGrid v-bind:productCards="getAllListings"/>
+    <ProductGrid v-bind:productCards="listings"/>
   </div>
 </template>
 
@@ -10,20 +10,27 @@ import gql from 'graphql-tag';
 import Vue from 'vue';
 import ProductGrid from '@/components/ProductGrid.vue';
 
+const GET_ALL_LISTINGS_QUERY = `
+query {
+  getAllListings {
+    price
+    title
+    description
+  }
+}
+`;
+const apolloListings = {
+  query: gql`${GET_ALL_LISTINGS_QUERY}`,
+  update(data: any) {
+    return data.getAllListings;
+  }
+};
 export default Vue.extend({
   components: {
     ProductGrid
   },
   apollo: {
-    getAllListings: gql`
-      query {
-        getAllListings {
-          price
-          title
-          description
-        }
-      }
-    `
+    listings: apolloListings
   }
 });
 </script>
