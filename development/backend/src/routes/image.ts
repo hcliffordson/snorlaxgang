@@ -42,7 +42,7 @@ router.post('', upload.single('file'), (req, res) => {
           .end(name);
     });
 });
-
+// to be able to get files
 router.use(express.static(TARGET_PATH));
 
 export default router;
