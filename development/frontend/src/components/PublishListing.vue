@@ -18,7 +18,7 @@
       <label for="image-upload" class="label">Bild</label>
       <div class="file">
         <label class="file-label">
-          <input class="file-input" type="file" name="image-upload">
+          <input class="file-input" accept="image/*" type="file" name="image-upload" @change="uploadImage($event)" >
           <span class="file-cta">
             <span class="file-label">Ladda upp bild</span>
           </span>
@@ -37,6 +37,7 @@
 </template>
 <script>
 import Vue from 'vue';
+import axios from 'axios';
 import router from '../router';
 
 export default Vue.extend({
@@ -44,21 +45,46 @@ export default Vue.extend({
     return {
       title: '',
       description: '',
-      price: 0
+      price: 0,
+      imageUrl: ''
     }
   },
   methods: {
     submit: function() {
-      const { title, description, price } = this;
+      const { title, description, price, imageUrl } = this;
       const data = {
         title,
         description,
-        price
+        price,
+        imageUrl
       }
       this.$emit('submit', data);
     },
     cancel: function() {
       router.go(-1);
+    },
+    uploadImage: function(event) {
+      console.log(event);
+      const URL = 'http://localhost:4000/image';
+
+      let data = new FormData();
+      data.append('file', event.target.files[0]);
+
+      let config = {
+        header : {
+          'Content-Type' : 'image/png'
+        }
+      }
+
+      axios.post(
+        URL,
+        data,
+        config
+      ).then(
+        response => {
+          this.imageUrl = response.data;
+        }
+      )
     }
   }
 })
