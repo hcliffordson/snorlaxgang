@@ -27,7 +27,7 @@
     </div>
     <div class="field is-grouped is-grouped-right">
       <p class="control">
-        <button class="button is-light">Avbryt</button>
+        <button class="button is-light" v-on:click="cancel">Avbryt</button>
       </p>
       <p class="control">
         <button class="button is-primary" v-on:click="submit">Spara</button>
@@ -37,6 +37,7 @@
 </template>
 <script>
 import Vue from 'vue';
+import router from '../router';
 
 export default Vue.extend({
   data: function() {
@@ -55,6 +56,9 @@ export default Vue.extend({
         price
       }
       this.$emit('submit', data);
+    },
+    cancel: function() {
+      router.go(-1);
     }
   }
 })
