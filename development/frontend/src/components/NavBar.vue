@@ -7,7 +7,7 @@
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
         </a>
-        <a class="navbar-item" href="home">
+        <a class="navbar-item" href="">
           <img src="../assets/otrade512.png" width="28" height="28">
         </a>
         <div class="navbar-item" style="margin-left: 180px">
