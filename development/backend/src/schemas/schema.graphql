@@ -4,3 +4,7 @@ type Query {
     getAllListings: [Listing!]!
     getListing(id: ID!): Listing
 }
+
+type Mutation {
+    createListing(imgURL: String!, title: String!, description: String!, price: Int!): Listing!
+}
