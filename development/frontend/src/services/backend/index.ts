@@ -8,3 +8,21 @@ query ($id: ID!) {
 }
 `;
 
+export const CREATE_LISTING_MUTATION = `
+mutation (
+  $price: Int!,
+  $title: String!,
+  $description: String!,
+  $imgURL: String!
+  ) {
+    createListing (
+      price: $price,
+      title: $title,
+      description: $description,
+      imgURL: $imgURL
+      ) {
+        id
+    }
+  }
+`;
+
