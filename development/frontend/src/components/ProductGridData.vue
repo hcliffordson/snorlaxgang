@@ -9,17 +9,8 @@ import gql from 'graphql-tag';
 
 import Vue from 'vue';
 import ProductGrid from '@/components/ProductGrid.vue';
+import {GET_ALL_LISTINGS_QUERY} from '@/services/backend';
 
-const GET_ALL_LISTINGS_QUERY = `
-query {
-  getAllListings {
-    price
-    title
-    description
-    id
-  }
-}
-`;
 const apolloListings = {
   query: gql`${GET_ALL_LISTINGS_QUERY}`,
   update(data: any) {

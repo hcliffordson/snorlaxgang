@@ -8,6 +8,18 @@ query ($id: ID!) {
 }
 `;
 
+export const GET_ALL_LISTINGS_QUERY = `
+query {
+  getAllListings {
+    price
+    title
+    description
+    id
+    imgURL
+  }
+}
+`;
+
 export const CREATE_LISTING_MUTATION = `
 mutation (
   $price: Int!,
@@ -25,4 +37,6 @@ mutation (
     }
   }
 `;
+
+
 
