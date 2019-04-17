@@ -35,6 +35,10 @@ mutation (
       imgURL: $imgURL
       ) {
         id
+        imgURL
+        price
+        title
+        description
     }
   }
 `;
