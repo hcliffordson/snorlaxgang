@@ -3,4 +3,5 @@ type Listing {
   title: String!
   description: String!
   price: Int!
+  imgURL: String!
 }
