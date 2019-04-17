@@ -3,7 +3,8 @@ query ($id: ID!) {
   getListing (id: $id) {
     title,
     price,
-    description
+    description,
+    imgURL
   }
 }
 `;
