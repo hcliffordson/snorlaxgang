@@ -37,56 +37,39 @@
 </template>
 <script>
 import Vue from 'vue';
-import axios from 'axios';
+import { uploadImage as uploadImgToServer } from '../services/backend/uploadImage';
 import router from '../router';
 
 export default Vue.extend({
-  data: function() {
+  data() {
     return {
       title: '',
       description: '',
       price: 0,
       imageUrl: ''
-    }
+    };
   },
   methods: {
-    submit: function() {
+    submit() {
       const { title, description, price, imageUrl } = this;
       const data = {
         title,
         description,
         price,
         imageUrl
-      }
+      };
       this.$emit('submit', data);
     },
-    cancel: function() {
+    cancel() {
       router.go(-1);
     },
-    uploadImage: function(event) {
-      console.log(event);
-      const URL = 'http://localhost:4000/image';
-
-      let data = new FormData();
-      data.append('file', event.target.files[0]);
-
-      let config = {
-        header : {
-          'Content-Type' : 'image/png'
-        }
-      }
-
-      axios.post(
-        URL,
-        data,
-        config
-      ).then(
-        response => {
-          this.imageUrl = response.data;
-        }
-      )
+    uploadImage(event) {
+      uploadImgToServer(event.target.files[0])
+        .then((imgUrl) => {
+          this.imageUrl = imgUrl;
+        });
     }
   }
-})
+});
 </script>
 

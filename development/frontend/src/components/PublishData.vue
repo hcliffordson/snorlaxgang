@@ -19,18 +19,14 @@ export default Vue.extend({
 
   methods: {
     createListing(data) {
-      const newListing = this.newListing;
-      this.newListing = '';
       this.$apollo.mutate({
         mutation: gql `${CREATE_LISTING_MUTATION}`,
         variables: {
           price: parseInt(data.price),
           title : data.title,
           description : data.description,
-          imgURL : 'TO BE CHANGED WHEN IMAGES IS SOLVED'
+          imgURL : data.imageUrl
         }
-      }).then((data) => {
-        console.log(data);
       });
     }
   }
