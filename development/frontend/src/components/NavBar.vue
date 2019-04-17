@@ -11,8 +11,8 @@
           <img src="../assets/otrade512.png" width="28" height="28">
         </a>
         <div class="navbar-item" style="margin-left: 180px">
-            <a class="button is-primary" href="publish"> Add
-              <strong></strong>
+            <a class="button is-primary" href="publish">
+              <i class="material-icons">add</i>
             </a>
         </div>
       </div>
