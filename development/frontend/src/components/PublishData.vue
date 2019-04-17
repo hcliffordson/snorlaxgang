@@ -8,13 +8,10 @@ import Vue from 'vue';
 import gql from 'graphql-tag';
 import PublishListing from '@/components/PublishListing.vue';
 import {CREATE_LISTING_MUTATION} from '@/services/backend';
+import router from '../router';
 export default Vue.extend({
   components: {
     PublishListing
-  },
-
-  props: {
-    ID: String
   },
 
   methods: {
@@ -27,6 +24,12 @@ export default Vue.extend({
           description : data.description,
           imgURL : data.imageUrl
         }
+      }).then((data) => {
+        router.push({
+          name: 'listingDetail',
+          params:{
+            id: data.data.createListing.id
+            }});
       });
     }
   }
