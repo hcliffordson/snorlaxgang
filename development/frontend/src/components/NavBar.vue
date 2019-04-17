@@ -12,9 +12,9 @@
           <img src="../assets/otrade512.png" width="28" height="28">
         </router-link>
         <div class="navbar-item" style="margin-left: 180px">
-            <a class="button is-primary" href="publish">
+            <router-link to="/publish" class="button is-primary">
               <i class="material-icons">add</i>
-            </a>
+            </router-link>
         </div>
       </div>
   </nav>
