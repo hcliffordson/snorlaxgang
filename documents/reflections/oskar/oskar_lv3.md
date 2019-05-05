@@ -1,4 +1,4 @@
-#### Individual Reflection lv2
+#### Individual Reflection lv3
 
 #### What do I want to learn or understand better?
 Under denna vecka har första raderna kod skrivits och därmed också första sprinten avklarats. Tillsammans med gruppen fick jag en bättre förståelse för hur man går från user stories till färdiga tasks och hur de skapas på ett sätt som gör de lätta att jobba med. Detta är samtidigt något jag känner är en viktig sak att kunna och därmed något jag vill jobba vidare med och bli bättre. För att komma dit vill jag fortsätta vara delaktig i arbetet av att skapa tasks samt delegera ut arbetet för dom.
