@@ -7,12 +7,18 @@ export const MutationMap: Mutation & IResolverObject = {
         const title = args.title;
         const description = args.description;
         const imgURL = args.imgURL;
+        const categoryId = args.categoryId;
         return ctx.binding.mutation.createListing({
             data: {
                 price,
                 description,
                 title,
-                imgURL
+                imgURL,
+                category: {
+                    connect: {
+                        id: categoryId
+                    }
+                }
 
             }
         }, info);

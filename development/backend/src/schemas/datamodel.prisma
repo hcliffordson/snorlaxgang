@@ -4,7 +4,7 @@ type Listing {
   description: String!
   price: Int!
   imgURL: String!
-  createdBy: User
+  category: Category
 }
 
 type User {
@@ -14,4 +14,9 @@ type User {
   surname: String!
   email: String!
   phone: String
+}
+
+type Category { 
+  id: ID! @unique
+  label: String!
 }
