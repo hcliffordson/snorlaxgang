@@ -24,6 +24,7 @@
           </span>
         </label>
       </div>
+      <p v-if="imageUrl != ''">Uploaded Successfully</p>
     </div>
     <div class="field is-grouped is-grouped-right">
       <p class="control">
