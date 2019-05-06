@@ -4,4 +4,14 @@ type Listing {
   description: String!
   price: Int!
   imgURL: String!
+  createdBy: User
+}
+
+type User {
+  id: ID! @unique
+  password: String!
+  firstName: String!
+  surname: String!
+  email: String!
+  phone: String
 }
