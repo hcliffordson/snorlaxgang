@@ -5,6 +5,7 @@ type Listing {
   price: Int!
   imgURL: String!
   category: Category
+  createdBy: User
 }
 
 type User {
