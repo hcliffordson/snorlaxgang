@@ -14,5 +14,9 @@ export const QueryMap: Query & IResolverObject = {
                     id: ID
                 }
             }, info);
-    }
+    },
+
+    getAllCategories: async (_parent, _args, ctx, info) => {
+        return ctx.binding.query.categories({}, info);
+    },
 };

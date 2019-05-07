@@ -3,6 +3,8 @@
 type Query {
     getAllListings: [Listing!]!
     getListing(id: ID!): Listing
+
+    getAllCategories: [Category!]!
 }
 
 type Mutation {
