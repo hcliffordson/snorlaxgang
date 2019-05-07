@@ -7,7 +7,7 @@
 
 import Vue from 'vue';
 import NavBar from '@/components/NavBar';
-import LoginForm from '@/components/LoginForm.vue'
+import LoginForm from '@/components/LoginForm.vue';
 
 export default Vue.extend({
   name: 'login',
@@ -15,6 +15,6 @@ export default Vue.extend({
     LoginForm,
     NavBar
   }
-})
+});
 
 </script>

@@ -35,9 +35,9 @@ import router from '../router';
 export default Vue.extend({
   methods: {
     submit() {
-      router.push('/')
+      router.push('/home');
     }
   }
-})
+});
 
 </script>

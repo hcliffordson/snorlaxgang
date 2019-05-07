@@ -8,7 +8,7 @@
           <span aria-hidden="true"></span>
         </a>
         <!-- <a class="navbar-item" href=""> -->
-        <router-link to="/" class="navbar-item">
+        <router-link to="/home" class="navbar-item">
           <img src="../assets/otrade512.png" width="28" height="28">
         </router-link>
         <div class="navbar-item" style="margin-left: 180px">
