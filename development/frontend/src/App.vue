@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <NavBar/>
+    <NavBar v-if="['login'].indexOf($route.name) <= -1"></NavBar>
     <router-view/>
   </div>
 </template>

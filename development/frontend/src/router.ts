@@ -3,6 +3,7 @@ import Router from 'vue-router';
 import Home from './views/Home.vue';
 import Listing from './views/Listing.vue';
 import Publish from './views/Publish.vue';
+import Login from './views/Login.vue';
 
 Vue.use(Router);
 
@@ -32,6 +33,11 @@ export default new Router({
       path: '/publish',
       name: 'publish',
       component: Publish
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Login
     }
   ],
 });
