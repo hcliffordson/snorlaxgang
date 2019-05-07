@@ -30,7 +30,7 @@
       <p class="control">
         <button class="button is-light" v-on:click="cancel">Avbryt</button>
       </p>
-      <p class="control"
+      <p class="control">
         <a class="button is-primary" v-if="imageUrl == ''" disabled>Spara</a>
         <a class="button is-primary" v-on:click="submit" v-else>Spara</a>
       </p>
