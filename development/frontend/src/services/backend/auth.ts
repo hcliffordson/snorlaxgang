@@ -9,7 +9,6 @@ import { BACKEND_URI } from '../config';
  * @returns A promise resolving to the token for the user
  */
 export const login = async (email: string, password: string): Promise<string> => {
-  // TODO
   const payload = {
     email,
     password
