@@ -1,5 +1,11 @@
 <template>
-  <publish-listing @submit="createListing"/>
+  <div>
+    <div v-if="!categories">Loading...</div>
+    <publish-listing @submit="createListing"
+      v-if="categories"
+      :categories="categories"
+    />
+  </div>
 </template>
 
 
@@ -9,10 +15,23 @@ import gql from 'graphql-tag';
 import PublishListing from '@/components/PublishListing.vue';
 import {CREATE_LISTING_MUTATION} from '@/services/backend';
 import {GET_ALL_LISTINGS_QUERY} from '@/services/backend';
+import {GET_ALL_CATEGORIES_QUERY} from '@/services/backend';
 import router from '../router';
 export default Vue.extend({
   components: {
     PublishListing
+  },
+
+  apollo: {
+    categories: {
+      query: gql`${GET_ALL_CATEGORIES_QUERY}`,
+
+      update(data) {
+        console.log(data);
+        return data.getAllCategories;
+
+      }
+    }
   },
 
   methods: {
@@ -23,7 +42,8 @@ export default Vue.extend({
           price: parseInt(data.price, 10),
           title : data.title,
           description : data.description,
-          imgURL : data.imageUrl
+          imgURL : data.imageUrl,
+          categoryId: data.categoryId
         },
         update: (store, { data: { createListing } }) => {
           const query = gql`${GET_ALL_LISTINGS_QUERY}`;

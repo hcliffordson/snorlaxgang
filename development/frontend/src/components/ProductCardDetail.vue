@@ -12,6 +12,7 @@
          <p class="subtitle is-3 has-text-centered">{{ price }}:-</p>
          </div>
       </div>
+      <div class="subtitle-is6 has-text-weight-bold">{{ categoryLabel }}</div>
       <div class="content">{{ description }}</div>
       <div class="container">
         <div class="subtitle-is6 has-text-weight-bold"> {{ seller }}</div>
@@ -38,6 +39,7 @@ export interface ProductCardType {
 export default Vue.extend({
   name: 'ProductCardDetail',
   props: {
+    categoryLabel: String,
     title: String,
     price: Number,
     imgURL: String,

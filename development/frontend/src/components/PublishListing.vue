@@ -5,6 +5,16 @@
       <input type="text" name="title" id="title" class="input" v-model="title">
     </div>
     <div class="field">
+      <label for="category" class="label">Category</label>
+      <div class="select">
+        <select v-model="selectedCategory">
+          <option v-for="category in categories" v-bind:key="category.id" v-bind:value="category.id">
+            {{ category.label }}
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="field">
       <label for="price" class="label">Pris</label>
       <input type="number" name="price" id="price" class="input" v-model="price">
     </div>
@@ -31,7 +41,7 @@
         <button class="button is-light" v-on:click="cancel">Avbryt</button>
       </p>
       <p class="control">
-        <a class="button is-primary" v-if="imageUrl == ''" disabled>Spara</a>
+        <a class="button is-primary" v-if="!formIsValid" disabled>Spara</a>
         <a class="button is-primary" v-on:click="submit" v-else>Spara</a>
       </p>
     </div>
@@ -43,22 +53,39 @@ import { uploadImage as uploadImgToServer } from '../services/backend/uploadImag
 import router from '../router';
 
 export default Vue.extend({
+  props: {
+    categories: Array
+  },
   data() {
     return {
       title: '',
       description: '',
       price: 0,
-      imageUrl: ''
+      imageUrl: '',
+      selectedCategory: ''
     };
   },
+  computed: {
+    formIsValid() {
+      // const val = ;
+      // console.log('VALUE from computed', val);
+      return this.title !== '' &&
+        this.description !== '' &&
+        this.imageUrl !== '' &&
+        this.selectedCategory !== '';
+    }
+  },
+
   methods: {
+
     submit() {
-      const { title, description, price, imageUrl } = this;
+      const { title, description, price, imageUrl, selectedCategory } = this;
       const data = {
         title,
         description,
         price,
-        imageUrl
+        imageUrl,
+        categoryId: selectedCategory
       };
       this.$emit('submit', data);
     },

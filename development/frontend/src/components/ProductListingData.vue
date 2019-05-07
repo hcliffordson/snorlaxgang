@@ -7,6 +7,7 @@
       :price="listing.price"
       :description="listing.description"
       :imgURL="listing.imgURL"
+      :categoryLabel="listing.category.label"
       seller="Karl Karlsson"
       email="kalle@karlsson.se"
       phone="07011211211"
