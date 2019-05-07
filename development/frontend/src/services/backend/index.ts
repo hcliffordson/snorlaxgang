@@ -4,7 +4,11 @@ query ($id: ID!) {
     title,
     price,
     description,
-    imgURL
+    imgURL,
+    category {
+      id
+      label
+    }
   }
 }
 `;
@@ -26,22 +30,38 @@ mutation (
   $price: Int!,
   $title: String!,
   $description: String!,
-  $imgURL: String!
+  $imgURL: String!,
+  $categoryId: String!
   ) {
     createListing (
       price: $price,
       title: $title,
       description: $description,
-      imgURL: $imgURL
+      imgURL: $imgURL,
+      categoryId: $categoryId
       ) {
         id
         imgURL
         price
         title
         description
+        category {
+          id
+          label
+        }
     }
   }
 `;
+
+export const GET_ALL_CATEGORIES_QUERY = `
+query {
+  getAllCategories {
+    id
+    label
+  }
+}
+`;
+
 
 
 
