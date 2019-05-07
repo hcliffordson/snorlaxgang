@@ -23,15 +23,17 @@ const loginHandler = async (email: string, password: string, res: Response) => {
         return;
     }
     const userId = users[0].id;
-    const token = jwt.sign(userId, JWT_SECRET, {
-        expiresIn: '7 days'
-    });
+    const token = jwt.sign(userId, JWT_SECRET);
     res.status(200).json({
         token
     });
 };
 router.post('/login', (req, res) => {
     const { email, password } = req.body;
+    if (!email || !password) {
+        res.status(401).send();
+        return;
+    }
     loginHandler(email, password, res);
 });
 
