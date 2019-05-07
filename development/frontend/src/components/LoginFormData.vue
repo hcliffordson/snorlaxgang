@@ -6,16 +6,16 @@ import Vue from 'vue';
 import { login } from '../services/backend/auth.ts';
 export default Vue.extend({
   methods: {
-    loginHandler(data) {
+    loginHandler(input) {
       // const email = data.email;
       // const password = data.password;
       const email = 'default@example.org';
       const password = 'defaultpass';
       login(email, password)
-        .then(data => console.log(data));
+        .then((data) => console.log(data));
 
 
     }
   }
-})
+});
 </script>

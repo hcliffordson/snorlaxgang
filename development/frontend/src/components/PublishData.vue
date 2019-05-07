@@ -20,23 +20,23 @@ export default Vue.extend({
       this.$apollo.mutate({
         mutation: gql `${CREATE_LISTING_MUTATION}`,
         variables: {
-          price: parseInt(data.price),
+          price: parseInt(data.price, 10),
           title : data.title,
           description : data.description,
           imgURL : data.imageUrl
         },
         update: (store, { data: { createListing } }) => {
           const query = gql`${GET_ALL_LISTINGS_QUERY}`;
-          const cacheData = store.readQuery({query: query});
-          cacheData.getAllListings.push(createListing)
-          store.writeQuery({ query: query, data: cacheData })
+          const cacheData = store.readQuery({query});
+          cacheData.getAllListings.push(createListing);
+          store.writeQuery({ query, data: cacheData });
       },
-      }).then((data) => {
+      }).then((resp) => {
         router.push({
           name: 'listingDetail',
-          params:{
-            id: data.data.createListing.id
-            }});
+          params: {
+            id: resp.data.createListing.id
+          }});
       });
     }
   }
