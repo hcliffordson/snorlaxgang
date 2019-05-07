@@ -23,3 +23,18 @@ export const login = async (email: string, password: string): Promise<string> =>
   return token;
 };
 
+export const isUserLoggedIn = async (): Promise<boolean> => {
+  const token = localStorage.jwt;
+  const verifyUrl = BACKEND_URI + '/auth/verify';
+  if (!token) {
+    return false;
+  }
+  // validate the token
+  const authHeader = `Bearer ${token}`;
+  const resp = await axios.get(verifyUrl, {
+    headers: {
+      Authorization: authHeader
+  }});
+  return resp.status === 200;
+};
+
