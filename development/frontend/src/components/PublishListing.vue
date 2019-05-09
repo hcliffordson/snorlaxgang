@@ -67,8 +67,6 @@ export default Vue.extend({
   },
   computed: {
     formIsValid() {
-      // const val = ;
-      // console.log('VALUE from computed', val);
       return this.title !== '' &&
         this.description !== '' &&
         this.imageUrl !== '' &&

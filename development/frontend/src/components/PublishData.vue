@@ -27,7 +27,6 @@ export default Vue.extend({
       query: gql`${GET_ALL_CATEGORIES_QUERY}`,
 
       update(data) {
-        console.log(data);
         return data.getAllCategories;
 
       }
