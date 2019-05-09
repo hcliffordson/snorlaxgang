@@ -41,8 +41,8 @@
         <button class="button is-light" v-on:click="cancel">Avbryt</button>
       </p>
       <p class="control">
-        <a class="button is-primary" v-if="!formIsValid" disabled>Spara</a>
-        <a class="button is-primary" v-on:click="submit" v-else>Spara</a>
+        <a class="button is-info" v-if="!formIsValid" disabled>Spara</a>
+        <a class="button is-info" v-on:click="submit" v-else>Spara</a>
       </p>
     </div>
   </div>

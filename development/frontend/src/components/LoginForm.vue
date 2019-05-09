@@ -1,13 +1,23 @@
 <template>
   <div class="container">
     <div class="field control">
-      <input class="input" type="email" placeholder="Email">
+      <p class="control has-icons-left">
+        <input class="input" type="email" placeholder="Email">
+        <span class="icon is-small is-left">
+          <i class="material-icons">email</i>
+        </span>
+      </p>
     </div>
     <div class="field control">
-      <input class="input" type="password" placeholder="Password" v-on:keyup.enter="submit">
+      <p class="control has-icons-left">
+        <input class="input" type="password" placeholder="Password" v-on:keyup.enter="submit">
+        <span class="icon is-small is-left">
+          <i class="material-icons">lock</i>
+        </span>
+      </p>
     </div>
     <div class="field control">
-      <button class="button is-success" v-on:click="submit">
+      <button class="button is-info" v-on:click="submit">
         Login
       </button>
     </div>
