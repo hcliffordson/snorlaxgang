@@ -9,6 +9,13 @@ query ($id: ID!) {
       id
       label
     }
+    createdBy {
+      id
+      firstName
+      surname
+      email
+      phone
+    }
   }
 }
 `;
