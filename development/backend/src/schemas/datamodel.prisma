@@ -4,8 +4,8 @@ type Listing {
   description: String!
   price: Int!
   imgURL: String!
-  category: Category
-  createdBy: User
+  category: Category!
+  createdBy: User!
 }
 
 type User {
