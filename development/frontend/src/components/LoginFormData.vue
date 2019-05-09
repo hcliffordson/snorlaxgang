@@ -1,18 +1,20 @@
 <template>
-  <button class="button" @click="loginHandler">TEST loginHandler</button>
+  <login-form @submit="loginHandler"></login-form>
 </template>
 <script>
 import Vue from 'vue';
 import { login } from '../services/backend/auth.ts';
+import LoginForm from '@/components/LoginForm.vue';
 export default Vue.extend({
+  components: {
+    LoginForm
+  },
   methods: {
     loginHandler(input) {
-      // const email = data.email;
-      // const password = data.password;
-      const email = 'default@example.org';
-      const password = 'defaultpass';
+      const email = input.email;
+      const password = input.password;
       login(email, password)
-        .then((data) => console.log(data));
+        .then((data) => this.$router.go(-1));
 
 
     }

@@ -4,21 +4,21 @@ import Home from './views/Home.vue';
 import Listing from './views/Listing.vue';
 import Publish from './views/Publish.vue';
 import Login from './views/Login.vue';
+import { isUserLoggedIn } from './services/backend/auth';
 
 Vue.use(Router);
-
-export default new Router({
+const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
     {
       path: '/',
-      redirect: '/login'
+      redirect: '/home'
     },
     {
       path: '/home',
       name: 'home',
-      component: Home,
+      component: Home
     },
     {
       path: '/about',
@@ -41,7 +41,33 @@ export default new Router({
     {
       path: '/login',
       name: 'login',
-      component: Login
+      component: Login,
+      meta: {
+        guest: true
+      }
     }
   ],
 });
+
+router.beforeEach((to, from, next) => {
+  if (to.matched.some((record) => !record.meta.guest)) {
+    // should be authenticated
+    isUserLoggedIn().then((loggedIn) => {
+      if (loggedIn) {
+        next();
+      } else {
+        next({name: 'login'});
+      }
+    });
+  } else {
+    isUserLoggedIn().then((loggedIn) => {
+      if (loggedIn) {
+        next({name: 'home'});
+      } else {
+        next();
+      }
+    });
+  }
+});
+
+export default router;

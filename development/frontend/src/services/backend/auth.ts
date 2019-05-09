@@ -31,10 +31,14 @@ export const isUserLoggedIn = async (): Promise<boolean> => {
   }
   // validate the token
   const authHeader = `Bearer ${token}`;
-  const resp = await axios.get(verifyUrl, {
-    headers: {
-      Authorization: authHeader
-  }});
-  return resp.status === 200;
+  try {
+    const resp = await axios.get(verifyUrl, {
+      headers: {
+        Authorization: authHeader
+    }});
+    return resp.status === 200;
+  } catch (ex) {
+  }
+  return false;
 };
 
