@@ -40,7 +40,6 @@ export default Vue.extend({
         };
       },
       update(data) {
-        console.log(data);
         return data.getListing;
       }
     }
