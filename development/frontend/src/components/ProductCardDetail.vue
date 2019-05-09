@@ -16,7 +16,7 @@
       <div class="content">{{ description }}</div>
       <div class="container">
         <div class="subtitle-is6 has-text-weight-bold">{{ sellerFN }} {{ sellerSN }}</div>
-        <a class="subtitle-is6 is-italic">{{ email }}</a>
+        <a :href="'mailto:' + email" class="subtitle-is6 is-italic"> {{ email }}</a>
         <div class="subtitle-is6"> {{ phone }}</div>
       </div>
       <div class="subtitle-is7 has-text-grey-light">Publicerad {{date}}</div>
