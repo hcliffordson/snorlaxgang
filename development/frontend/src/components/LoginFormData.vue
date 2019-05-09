@@ -14,7 +14,7 @@ export default Vue.extend({
       const email = input.email;
       const password = input.password;
       login(email, password)
-        .then((data) => this.$router.go(-1));
+        .then((data) => this.$router.push('home'));
 
 
     }
