@@ -15,7 +15,7 @@
       <div class="subtitle-is6 has-text-weight-bold">{{ categoryLabel }}</div>
       <div class="content">{{ description }}</div>
       <div class="container">
-        <div class="subtitle-is6 has-text-weight-bold"> {{ seller }}</div>
+        <div class="subtitle-is6 has-text-weight-bold">{{ sellerFN }} {{ sellerSN }}</div>
         <a class="subtitle-is6 is-italic">{{ email }}</a>
         <div class="subtitle-is6"> {{ phone }}</div>
       </div>
@@ -31,7 +31,8 @@ export interface ProductCardType {
   price: number;
   imgUrl: string;
   description: string;
-  seller: string;
+  sellerFN: string;
+  sellerSN: string;
   email: string;
   phone: string;
   date: string;
@@ -44,7 +45,8 @@ export default Vue.extend({
     price: Number,
     imgURL: String,
     description: String,
-    seller: String,
+    sellerFN: String,
+    sellerSN: String,
     email: String,
     phone: String,
     date: String,

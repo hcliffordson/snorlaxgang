@@ -8,9 +8,10 @@
       :description="listing.description"
       :imgURL="listing.imgURL"
       :categoryLabel="listing.category.label"
-      seller="Karl Karlsson"
-      email="kalle@karlsson.se"
-      phone="07011211211"
+      :sellerFN="listing.createdBy.firstName"
+      :sellerSN="listing.createdBy.surname"
+      :email="listing.createdBy.email"
+      :phone="listing.createdBy.phone"
       date="4 April"
     />
   </div>
@@ -39,6 +40,7 @@ export default Vue.extend({
         };
       },
       update(data) {
+        console.log(data);
         return data.getListing;
       }
     }
