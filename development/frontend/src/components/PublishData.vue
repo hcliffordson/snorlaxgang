@@ -46,9 +46,13 @@ export default Vue.extend({
         },
         update: (store, { data: { createListing } }) => {
           const query = gql`${GET_ALL_LISTINGS_QUERY}`;
-          const cacheData = store.readQuery({query});
-          cacheData.getAllListings.push(createListing);
-          store.writeQuery({ query, data: cacheData });
+          try {
+            const cacheData = store.readQuery({query});
+            cacheData.getAllListings.push(createListing);
+            store.writeQuery({ query, data: cacheData });
+          } catch (ex) {
+            console.log('No cache existed for all listings');
+          }
       },
       }).then((resp) => {
         router.push({
