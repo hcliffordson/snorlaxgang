@@ -37,8 +37,7 @@ export const isUserLoggedIn = async (): Promise<boolean> => {
         Authorization: authHeader
     }});
     return resp.status === 200;
-  } catch (ex) {
-  }
+  } catch (ex) {}
   return false;
 };
 

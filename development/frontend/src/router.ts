@@ -6,6 +6,7 @@ import Publish from './views/Publish.vue';
 import Login from './views/Login.vue';
 import Search from './views/Search.vue';
 import { isUserLoggedIn } from './services/backend/auth';
+import Profile from './views/Profile.vue';
 
 Vue.use(Router);
 const router = new Router({
@@ -52,7 +53,12 @@ const router = new Router({
       component: Search,
       meta: {
         hideNav: true
-      }
+      },
+    },
+    {
+      path: '/profile',
+      name: 'profile',
+      component: Profile,
     }
   ],
 });

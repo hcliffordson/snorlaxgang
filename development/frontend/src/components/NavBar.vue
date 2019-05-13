@@ -12,15 +12,20 @@
           <img src="../assets/otrade512.png" width="28" height="28">
         </router-link>
         <div class="navbar-item">
-            <router-link to="/publish" class="button">
-              <i class="material-icons">add</i>
-            </router-link>
-        </div>
-        <div class="navbar-item">
           <router-link to="/search" class="button">
             <i class="material-icons">search</i>
           </router-link>
         </div>
-      </div>
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <router-link to="/publish" class="button">
+              <i class="material-icons">add</i>
+            </router-link>
+            <router-link to="/profile" class="button">
+              <i class="material-icons">account_box</i>
+            </router-link>
+          </div>
+        </div>
+       </div>
   </nav>
 </template>
