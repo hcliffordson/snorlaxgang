@@ -4,6 +4,7 @@ import Home from './views/Home.vue';
 import Listing from './views/Listing.vue';
 import Publish from './views/Publish.vue';
 import Login from './views/Login.vue';
+import Search from './views/Search.vue';
 import { isUserLoggedIn } from './services/backend/auth';
 
 Vue.use(Router);
@@ -43,6 +44,14 @@ const router = new Router({
       component: Login,
       meta: {
         guest: true
+      }
+    },
+    {
+      path: '/search',
+      name: 'search',
+      component: Search,
+      meta: {
+        hideNav: true
       }
     }
   ],
