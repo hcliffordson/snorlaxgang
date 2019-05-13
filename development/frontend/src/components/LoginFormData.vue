@@ -1,5 +1,5 @@
 <template>
-  <login-form @submit="loginHandler"></login-form>
+  <login-form @submit="loginHandler" :isInvalidLogin="isInvalidLogin"></login-form>
 </template>
 <script>
 import Vue from 'vue';
@@ -9,12 +9,21 @@ export default Vue.extend({
   components: {
     LoginForm
   },
+  data() {
+    return {
+      isInvalidLogin: false,
+    };
+  },
   methods: {
     loginHandler(input) {
       const email = input.email;
       const password = input.password;
       login(email, password)
-        .then((data) => this.$router.push('home'));
+        .then((data) => this.$router.push('home'))
+        .catch((err) => {
+          this.isInvalidLogin = true;
+          console.log(err);
+        });
 
 
     }
