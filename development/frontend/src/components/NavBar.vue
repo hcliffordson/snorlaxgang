@@ -11,10 +11,15 @@
         <router-link to="/home" class="navbar-item">
           <img src="../assets/otrade512.png" width="28" height="28">
         </router-link>
-        <div class="navbar-item" style="margin-left: 180px">
-            <router-link to="/publish" class="button is-info">
+        <div class="navbar-item">
+            <router-link to="/publish" class="button">
               <i class="material-icons">add</i>
             </router-link>
+        </div>
+        <div class="navbar-item">
+          <router-link to="/search" class="button">
+            <i class="material-icons">search</i>
+          </router-link>
         </div>
       </div>
   </nav>
