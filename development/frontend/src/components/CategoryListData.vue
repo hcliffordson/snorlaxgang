@@ -14,7 +14,6 @@ import {GET_ALL_CATEGORIES_QUERY} from '@/services/backend';
 const apolloCategories = {
   query: gql`${GET_ALL_CATEGORIES_QUERY}`,
   update(data) {
-    console.log(data.getAllCategories);
     return data.getAllCategories;
   }
 };
