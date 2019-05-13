@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <NavBar v-if="['login'].indexOf($route.name) <= -1"></NavBar>
+    <NavBar v-if="showNavbar"></NavBar>
     <router-view/>
   </div>
 </template>
@@ -10,6 +10,11 @@ import NavBar from '@/components/NavBar';
 
 export default {
   name: 'App',
+  computed: {
+    showNavbar() {
+      return !this.$route.meta.guest && !this.$route.meta.hideNav;
+    }
+  },
   components: {
     NavBar,
   }
