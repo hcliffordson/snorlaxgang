@@ -3,8 +3,8 @@
 type Query {
     getAllListings: [Listing!]!
     getListing(id: ID!): Listing
-
     getAllCategories: [Category!]!
+    searchListings(query: String!): [Listing!]!
 }
 
 type Mutation {
