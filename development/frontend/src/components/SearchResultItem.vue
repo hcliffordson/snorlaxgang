@@ -3,7 +3,7 @@
       <article class="media">
         <div class="media-left">
             <figure class="image is-64x64">
-              <img src="imgURL" alt="Placeholder image">
+              <img :src="imgURL" alt="Placeholder image">
             </figure>
           </div>
         <div class="media-content">
