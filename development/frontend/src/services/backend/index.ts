@@ -69,6 +69,13 @@ query {
 }
 `;
 
-
-
-
+export const SEARCH_LISTING_QUERY = `
+query($query: String!) {
+  searchListings(query: $query) {
+    title,
+    description,
+    price,
+    imgURL
+  }
+}
+`;
