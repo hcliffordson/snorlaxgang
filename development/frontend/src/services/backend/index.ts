@@ -96,6 +96,7 @@ query($query: String!) {
 export const GET_MY_LISTINGS_QUERY = `
 query {
   getMyListings {
+    id,
     title,
     description,
     price,
