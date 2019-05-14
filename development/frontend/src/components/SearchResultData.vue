@@ -1,17 +1,18 @@
 <template>
-<div>
-  <loading-bar v-if="$apollo.loading || loading"></loading-bar>
-  <span v-else >
-    {{results}}
-  </span>
+  <div>
+    <loading-bar v-if="$apollo.loading || loading"></loading-bar>
+    <span v-else >
+      <search-result-list :searchResults="results" />
+    </span>
 
-</div>
+  </div>
 </template>
 <script>
 import gql from 'graphql-tag';
 import Vue from 'vue';
 import {SEARCH_LISTING_QUERY} from '@/services/backend';
 import LoadingBar from '@/components/LoadingBar.vue';
+import SearchResultList from '@/components/SearchResultList.vue';
 import { setTimeout } from 'timers';
 const SEARCH_DELAY = 500;
 const searchDelay = () => new Promise((res) => setTimeout(res, SEARCH_DELAY));
@@ -35,7 +36,8 @@ export default Vue.extend({
     }
   },
   components: {
-    LoadingBar
+    LoadingBar,
+    SearchResultList
   },
   apollo: {
     results: {
