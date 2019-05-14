@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <ProductGrid v-bind:productCards="listings"/>
-  </div>
+  <ProductGrid v-bind:productCards="listings"/>
 </template>
 
 <script lang="ts">
