@@ -1,7 +1,7 @@
 <template>
-  <div class="home">
+  <section class="section">
     <product-grid-data />
-  </div>
+  </section>
 </template>
 
 <script lang="ts">
