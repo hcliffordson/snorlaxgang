@@ -8,7 +8,7 @@
     <div class="card-content">
       <div class="media">
         <div class="media-content">
-          <p class="title is-4">{{ title }}</p>
+          <p class="title is-5">{{ title }}</p>
           <p class="subtitle is-6">Price: {{ price }}</p>
         </div>
       </div>
@@ -32,5 +32,10 @@ export default Vue.extend({
   }
 });
 </script>
+<style scoped>
+.card-content {
+  padding: .5rem;
+}
+</style>
 
 
