@@ -38,5 +38,16 @@ export const QueryMap: Query & IResolverObject = {
                 title_contains: query
             }
         }, info);
-    }
+    },
+
+    getMyListings: async (_parent, _args, ctx, info) => {
+        const userId = ctx.user.id;
+        return ctx.binding.query.listings({
+            where: {
+                createdBy: {
+                    id: userId
+                }
+            }
+        }, info);
+    },
 };

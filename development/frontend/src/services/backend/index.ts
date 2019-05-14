@@ -79,3 +79,14 @@ query($query: String!) {
   }
 }
 `;
+
+export const GET_MY_LISTINGS_QUERY = `
+query($query: String!) {
+  getMyListings(query: $query) {
+    title,
+    description,
+    price,
+    imgURL
+  }
+}
+`;
