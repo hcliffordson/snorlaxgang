@@ -32,6 +32,18 @@ query {
 }
 `;
 
+export const GET_ALL_LISTINGS_IN_CATEGORY_QUERY = `
+  query ($id: String!) {
+    getListingsInCategory (categoryId: $id) {
+      price
+      title
+      description
+      id
+      imgURL
+    }
+  }
+`;
+
 export const CREATE_LISTING_MUTATION = `
 mutation (
   $price: Int!,
