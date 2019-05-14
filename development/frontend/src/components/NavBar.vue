@@ -1,10 +1,9 @@
 <template>
   <span>
     <nav
-      class="navbar"
+      class="navbar is-fixed-top is-light"
       role="navigation"
       aria-label="main navigation"
-      style="background-color: #efefef90"
     >
       <div class="navbar-brand">
         <a
