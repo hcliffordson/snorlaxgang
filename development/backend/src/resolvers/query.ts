@@ -33,11 +33,15 @@ export const QueryMap: Query & IResolverObject = {
 
     searchListings: async (_parent, args, ctx, info) => {
         const { query } = args;
-        return ctx.binding.query.listings({
-            where: {
-                title_contains: query
+        const sql = `SELECT * FROM "default$default"."Listing" WHERE
+        title ILIKE '%${query}%';`
+            .replace(/"/g, '\\"').replace(/\n/g, ' ').replace(/\s+/g, ' ');
+        const response = await ctx.db.$graphql(`
+            mutation {
+                executeRaw(query: "${sql}")
             }
-        }, info);
+        `);
+        return response.executeRaw;
     },
 
     getMyListings: async (_parent, _args, ctx, info) => {
