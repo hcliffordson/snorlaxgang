@@ -52,14 +52,14 @@
   </span>
 </template>
 <script>
-import Vue from "vue";
-import CategoryListData from "@/components/CategoryListData.vue";
+import Vue from 'vue';
+import CategoryListData from '@/components/CategoryListData.vue';
 
 export default Vue.extend({
   components: {
     CategoryListData
   },
-  data: function() {
+  data() {
     return {
       isClicked: false
     };
