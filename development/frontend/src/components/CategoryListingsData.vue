@@ -3,7 +3,7 @@
   <!-- <div>{{categoryListings}}</div> -->
 </template>
 
-<script lang="ts">
+<script>
 import gql from 'graphql-tag';
 
 import Vue from 'vue';
@@ -17,7 +17,7 @@ const apolloCategoryListings = {
       id: this.categoryId
     };
   },
-  update(data: any) {
+  update(data) {
     return data.getListingsInCategory;
   }
 };
