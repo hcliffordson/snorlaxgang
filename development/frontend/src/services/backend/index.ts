@@ -93,12 +93,23 @@ query($query: String!) {
 `;
 
 export const GET_MY_LISTINGS_QUERY = `
-query($query: String!) {
-  getMyListings(query: $query) {
+query {
+  getMyListings {
     title,
     description,
     price,
     imgURL
+  }
+}
+`;
+
+export const GET_USER_QUERY = `
+query {
+  getUser {
+    firstName,
+    surname,
+    email,
+    phone
   }
 }
 `;

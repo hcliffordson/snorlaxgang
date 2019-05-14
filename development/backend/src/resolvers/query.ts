@@ -50,4 +50,12 @@ export const QueryMap: Query & IResolverObject = {
             }
         }, info);
     },
+    getUser: async (_parent, _args, ctx, info) => {
+        const userid = ctx.user.id;
+        return ctx.binding.query.user({
+            where: {
+                   id: userid
+                }
+        }, info);
+    }
 };
