@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <NavBar v-if="showNavbar"></NavBar>
-    <router-view/>
+    <router-view :class="showNavbar && 'navbar-margin'"/>
   </div>
 </template>
 
@@ -28,14 +28,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
 }
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+.navbar-margin {
+  margin-top: 16px;
 }
 </style>
