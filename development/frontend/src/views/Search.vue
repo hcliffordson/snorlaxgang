@@ -1,6 +1,6 @@
 <template>
   <div>
-    <search-bar/>
+    <search-bar @submit="updateSearch"/>
     <section class="section">
       <search-result-data :query="searchQuery" v-if="!searchBlank" />
       <p v-else>
@@ -27,6 +27,11 @@ export default Vue.extend({
   components: {
     SearchResultData,
     SearchBar
+  },
+  methods: {
+    updateSearch(data) {
+      this.searchQuery = data.query;
+    }
   }
 });
 </script>

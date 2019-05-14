@@ -13,8 +13,8 @@ import Vue from 'vue';
 import {SEARCH_LISTING_QUERY} from '@/services/backend';
 import LoadingBar from '@/components/LoadingBar.vue';
 import SearchResultList from '@/components/SearchResultList.vue';
-import { setTimeout } from 'timers';
-const SEARCH_DELAY = 500;
+import { setTimeout, clearTimeout } from 'timers';
+const SEARCH_DELAY = 1000;
 const searchDelay = () => new Promise((res) => setTimeout(res, SEARCH_DELAY));
 export default Vue.extend({
   props: {
@@ -23,16 +23,20 @@ export default Vue.extend({
   data() {
     return {
       internalQuery: '',
-      loading: true
+      loading: true,
+      timeoutHandle: 0
     };
   },
   watch: {
     query(oldVal, newVal) {
       this.loading = true;
-      searchDelay().then(() => {
-        this.internalQuery = newVal;
+      if (this.timeoutHandle !== 0) {
+        clearTimeout(this.timeoutHandle);
+      }
+      this.timeoutHandle = setTimeout(() => {
+        this.internalQuery = newVal || oldVal;
         this.loading = false;
-      });
+      }, SEARCH_DELAY);
     }
   },
   components: {
@@ -44,7 +48,7 @@ export default Vue.extend({
       query: gql`${SEARCH_LISTING_QUERY}`,
       variables() {
         return {
-          query: this.query
+          query: this.internalQuery
         };
       },
       update(data) {

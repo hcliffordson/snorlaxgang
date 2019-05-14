@@ -9,7 +9,7 @@
         <div class="navbar-item">
           <div class="field ">
             <div class="control has-icons-left">
-              <input v-model="query"  class="input" type="text" placeholder="Search" @change="submit">
+              <input v-model="query"  class="input" type="text" placeholder="Search" @input="submit">
               <span class="icon is-small is-left">
                 <i class="material-icons">search</i>
               </span>
