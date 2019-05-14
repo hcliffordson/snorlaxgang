@@ -19,6 +19,18 @@ export const QueryMap: Query & IResolverObject = {
     getAllCategories: async (_parent, _args, ctx, info) => {
         return ctx.binding.query.categories({}, info);
     },
+
+    getListingsInCategory: async (_parent, args, ctx, info) => {
+        const ID = args.categoryId;
+        return ctx.binding.query.listings({
+            where: {
+                category: {
+                    id: ID
+                }
+            }
+        }, info);
+    },
+
     searchListings: async (_parent, args, ctx, info) => {
         const { query } = args;
         return ctx.binding.query.listings({

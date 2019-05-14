@@ -5,6 +5,7 @@ type Query {
     getListing(id: ID!): Listing
     getAllCategories: [Category!]!
     searchListings(query: String!): [Listing!]!
+    getListingsInCategory(categoryId: String!): [Listing!]!
 }
 
 type Mutation {
