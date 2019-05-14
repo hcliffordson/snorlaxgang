@@ -77,13 +77,12 @@ export default Vue.extend({
 #menu-shadow {
   position: fixed;
   z-index: 100;
+  top: 3.25rem;
   background-color: #33333399;
   width: 100%;
   height: 100%;
 }
 #burger-menu {
-  position: fixed;
-  z-index: 101;
   background-color: #f5f5f5;
   width: 50%;
   height: 100%;
