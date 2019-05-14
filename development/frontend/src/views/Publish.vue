@@ -1,7 +1,7 @@
 <template>
-  <div class ="publish">
+  <section class="section">
     <publish-data/>
-  </div>
+  </section>
 </template>
 
 <script>
