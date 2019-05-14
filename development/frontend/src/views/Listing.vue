@@ -1,7 +1,7 @@
 <template>
-  <div class="listing">
+  <section class="section">
     <product-listing-data v-bind:listing-id="$route.params.id"></product-listing-data>
-  </div>
+  </section>
 </template>
 
 
