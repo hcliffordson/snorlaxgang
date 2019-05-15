@@ -8,6 +8,7 @@ type Query {
     getListingsInCategory(categoryId: String!): [Listing!]!
     getMyListings: [Listing!]!
     getUser: User!
+    getCategory(categoryId: String!): Category
 }
 
 type Mutation {

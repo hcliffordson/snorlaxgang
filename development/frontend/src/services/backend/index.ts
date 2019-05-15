@@ -20,6 +20,15 @@ query ($id: ID!) {
 }
 `;
 
+export const GET_CATEGORY_QUERY = `
+query ($id: String!) {
+  getCategory (categoryId: $id) {
+    label
+    id
+  }
+}
+`;
+
 export const GET_ALL_LISTINGS_QUERY = `
 query {
   getAllListings {
