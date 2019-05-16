@@ -1,5 +1,6 @@
 import { Query } from './utils';
 import { IResolverObject } from 'graphql-tools';
+import { UserInputError } from 'apollo-server-core';
 
 export const QueryMap: Query & IResolverObject = {
     getAllListings: async (_parent, _args, ctx, info) => {
@@ -66,10 +67,14 @@ export const QueryMap: Query & IResolverObject = {
     },
     getUser: async (_parent, _args, ctx, info) => {
         const userid = ctx.user.id;
-        return ctx.binding.query.user({
+        const user = await ctx.binding.query.user({
             where: {
                    id: userid
                 }
         }, info);
+        if (!user) {
+            throw new UserInputError('No user returned for the token supplied. Something is wrong.');
+        }
+        return user;
     }
 };

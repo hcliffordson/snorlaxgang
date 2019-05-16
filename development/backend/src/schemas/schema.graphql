@@ -7,7 +7,7 @@ type Query {
     searchListings(query: String!): [Listing!]!
     getListingsInCategory(categoryId: String!): [Listing!]!
     getMyListings: [Listing!]!
-    getUser: User
+    getUser: User!
     getCategory(categoryId: String!): Category
 }
 
