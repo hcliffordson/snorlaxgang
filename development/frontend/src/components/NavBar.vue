@@ -43,7 +43,7 @@
         </div>
       </div>
     </nav>
-    <div id="menu-shadow" v-if="isClicked">
+    <div id="menu-shadow" v-if="isClicked" v-on:click="closeMenu">
       <div id="burger-menu">
         <category-list-data/>
       </div>
