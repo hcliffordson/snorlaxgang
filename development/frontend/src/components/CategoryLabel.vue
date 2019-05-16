@@ -1,7 +1,16 @@
 <template>
-<h1 v-if="category">{{ category.label }} </h1>
+    <span class="tag category-tag is-info is-medium" v-if="category">{{ category.label }} &nbsp;
+      <router-link to="/home">
+      <button class="delete"></button>
+      </router-link>
+    </span>
 </template>
 
+<style scoped>
+.category-tag{
+  margin-bottom: 12px;
+}
+</style>
 
 <script lang="ts">
 import gql from 'graphql-tag';
