@@ -35,7 +35,7 @@ router.post('', upload.single('file'), (req, res) => {
     const name = shortid.generate() + '.png';
     const targetPath = path.join(TARGET_PATH, name);
 
-    fs.rename(tempPath, targetPath, err => {
+    fs.copyFile(tempPath, targetPath, err => {
         if (err) return handleError(err, res);
         res.status(200)
           .contentType('text/plain')
