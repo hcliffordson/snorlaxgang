@@ -13,4 +13,5 @@ type Query {
 
 type Mutation {
     createListing(imgURL: String!, title: String!, description: String!, price: Int!, categoryId: String!): Listing!
+    updateListing(id: ID!,imgURL: String!, title: String!, description: String!, price: Int!, categoryId: String!): Listing!
 }
