@@ -20,12 +20,20 @@
         <div class="subtitle-is6"> {{ phone }}</div>
       </div>
       <div class="subtitle-is7 has-text-grey-light">Publicerad {{date}}</div>
+      <div class="field is-grouped is-grouped-right">
+       <p class="control">
+        <button class="button is-light" v-if="user.firstName==sellerFN && user.surname==sellerSN">Redigera
+        </button>
+       </p>
+      </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
+import {GET_USER_QUERY} from '@/services/backend';
+import gql from 'graphql-tag';
 export interface ProductCardType {
   title: string;
   price: number;
@@ -51,6 +59,14 @@ export default Vue.extend({
     phone: String,
     date: String,
   },
+  apollo: {
+    user: {
+      query: gql`${GET_USER_QUERY}`,
+      update(data) {
+        return data.getUser;
+      }
+    }
+  }
 });
 </script>
 
