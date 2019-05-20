@@ -6,6 +6,7 @@
         </SearchResultItem>
       </router-link>
     </div>
+    <h4 v-if="!searchResults.length">No listings found 😢 </h4>
   </div>
 </template>
 
