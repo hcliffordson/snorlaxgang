@@ -1,6 +1,9 @@
 <template>
-  <product-grid v-bind:productCards="categoryListings" />
-  <!-- <div>{{categoryListings}}</div> -->
+  <div>
+    <product-grid v-bind:productCards="categoryListings" />
+    <!-- <div>{{categoryListings}}</div> -->
+    <h4 v-if="!categoryListings.length">No listings found 😢 </h4>
+  </div>
 </template>
 
 <script>
