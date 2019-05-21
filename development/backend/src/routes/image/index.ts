@@ -4,14 +4,16 @@ import multer from 'multer';
 import fs from 'fs';
 import path from 'path';
 import shortid from 'shortid';
-import config from '../config';
+import config from '../../config';
+import { imageHandler } from './imagehandler';
 
 const router = Router();
 
 const TMP_PATH = '../../tmp';
 const TARGET_PATH = config.IMAGE_PATH;
+const storage = multer.memoryStorage();
 const upload = multer({
-    dest: TMP_PATH
+    storage
 });
 
 const handleError = (err: any, res: any) => {
@@ -30,17 +32,17 @@ if (!fs.existsSync(TARGET_PATH)) {
     });
 }
 // upload image
-router.post('', upload.single('file'), (req, res) => {
-    const tempPath = req.file.path;
+router.post('', upload.single('file'), async (req, res) => {
     const name = shortid.generate() + '.png';
     const targetPath = path.join(TARGET_PATH, name);
-
-    fs.copyFile(tempPath, targetPath, err => {
-        if (err) return handleError(err, res);
+    try {
+        await imageHandler(req.file, targetPath);
         res.status(200)
           .contentType('text/plain')
           .end(name);
-    });
+    } catch (ex) {
+        return handleError(ex, res);
+    }
 });
 // to be able to get files
 router.use(express.static(TARGET_PATH));
