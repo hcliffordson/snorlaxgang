@@ -2,7 +2,7 @@
   <div>
     <loading-bar v-if="$apollo.loading || loading"></loading-bar>
     <span v-else >
-      <search-result-list :searchResults="results" />
+      <search-result-list :searchListingResults="listingResults" :searchCategoryResults="categoryResults" />
     </span>
 
   </div>
@@ -14,6 +14,7 @@ import {SEARCH_LISTING_QUERY} from '@/services/backend';
 import LoadingBar from '@/components/LoadingBar.vue';
 import SearchResultList from '@/components/SearchResultList.vue';
 import { setTimeout, clearTimeout } from 'timers';
+import { SEARCH_CATEGORY_QUERY } from '../services/backend';
 const SEARCH_DELAY = 1000;
 const searchDelay = () => new Promise((res) => setTimeout(res, SEARCH_DELAY));
 export default Vue.extend({
@@ -44,7 +45,7 @@ export default Vue.extend({
     SearchResultList
   },
   apollo: {
-    results: {
+    listingResults: {
       query: gql`${SEARCH_LISTING_QUERY}`,
       variables() {
         return {
@@ -53,6 +54,17 @@ export default Vue.extend({
       },
       update(data) {
         return data.searchListings;
+      }
+    },
+    categoryResults: {
+      query: gql`${SEARCH_CATEGORY_QUERY}`,
+      variables() {
+        return {
+          query: this.internalQuery
+        };
+      },
+      update(data) {
+        return data.searchCategories;
       }
     }
   }

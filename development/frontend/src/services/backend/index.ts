@@ -102,6 +102,15 @@ query($query: String!) {
 }
 `;
 
+export const SEARCH_CATEGORY_QUERY = `
+query($query: String!) {
+  searchCategories(query: $query) {
+    id,
+    label
+  }
+}
+`;
+
 export const GET_MY_LISTINGS_QUERY = `
 query {
   getMyListings {
