@@ -1,7 +1,7 @@
 import { Mutation } from './utils';
 import { IResolverObject } from 'graphql-tools';
 import { argumentsObjectFromField } from 'apollo-utilities';
-import { UserInputError } from 'apollo-server-core';
+import { UserInputError, ApolloError } from 'apollo-server-core';
 
 export const MutationMap: Mutation & IResolverObject = {
     createListing: async (_parent, args, ctx, info) => {
@@ -64,5 +64,27 @@ export const MutationMap: Mutation & IResolverObject = {
             throw new UserInputError('Could not be updated');
         }
         return mutation;
+    },
+    deleteListing: async (_parent, args, ctx, info) => {
+        const listingId = args.id;
+        const currentUserId = ctx.user.id;
+        const listingValid = await ctx.db.$exists.listing({
+            id: listingId,
+            createdBy: {
+                id: currentUserId
+            }
+        });
+        if (!listingValid) {
+            throw new UserInputError('The listing supplied is not valid for this user or does not exist.');
+        }
+        const removedListing = await ctx.binding.mutation.deleteListing({
+            where: {
+                id: listingId
+            }
+        }, info);
+        if (!removedListing) {
+            throw new ApolloError('Listing could not be removed');
+        }
+        return removedListing;
     }
 };
