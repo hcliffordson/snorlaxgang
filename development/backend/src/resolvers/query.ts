@@ -54,6 +54,18 @@ export const QueryMap: Query & IResolverObject = {
         `);
         return response.executeRaw;
     },
+    searchCategories: async (_parent, args, ctx, info) => {
+        const { query } = args;
+        const sql = `SELECT * FROM "default$default"."Category" WHERE
+        label ILIKE '%${query}%';`
+            .replace(/"/g, '\\"').replace(/\n/g, ' ').replace(/\s+/g, ' ');
+        const response = await ctx.db.$graphql(`
+            mutation {
+                executeRaw(query: "${sql}")
+            }
+        `);
+        return response.executeRaw;
+    },
 
     getMyListings: async (_parent, _args, ctx, info) => {
         const userId = ctx.user.id;
