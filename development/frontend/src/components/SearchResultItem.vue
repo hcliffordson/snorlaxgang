@@ -2,7 +2,7 @@
   <div class="box">
       <article class="media">
         <div class="media-left">
-            <figure class="image is-64x64">
+            <figure class="image is-64x64 is-square">
               <img :src="imgURL" alt="Placeholder image">
             </figure>
           </div>
