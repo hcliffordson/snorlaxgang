@@ -81,6 +81,36 @@ mutation (
   }
 `;
 
+export const UPDATE_LISTING_MUTATION = `
+mutation (
+  $id: ID!,
+  $price: Int!,
+  $title: String!,
+  $description: String!,
+  $imgURL: String!,
+  $categoryId: String!
+  ) {
+  updateListing (
+    id: $id,
+    imgURL: $imgURL,
+    title: $title,
+    description: $description,
+    price: $price,
+    categoryId: $categoryId
+  ) {
+    id
+    imgURL
+    title
+    description
+    price
+    category {
+      id
+      label
+    }
+  }
+}
+`;
+
 export const GET_ALL_CATEGORIES_QUERY = `
 query {
   getAllCategories {
