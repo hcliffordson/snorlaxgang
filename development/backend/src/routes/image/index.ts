@@ -9,7 +9,6 @@ import { imageHandler } from './imagehandler';
 
 const router = Router();
 
-const TMP_PATH = '../../tmp';
 const TARGET_PATH = config.IMAGE_PATH;
 const storage = multer.memoryStorage();
 const upload = multer({
@@ -17,7 +16,7 @@ const upload = multer({
 });
 
 const handleError = (err: any, res: any) => {
-    console.log(err);
+    console.error('ERROR', err);
     res
       .status(500)
       .contentType('text/plain')

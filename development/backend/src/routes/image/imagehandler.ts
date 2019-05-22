@@ -1,8 +1,10 @@
 import sharp from 'sharp';
+import fs from 'fs';
 
 export const imageHandler = async (img: Express.Multer.File, targetPath: string): Promise<void> => {
-    await sharp(img.buffer)
+    const buffer = await sharp(img.buffer)
         .rotate()
-        .toFile(targetPath);
+        .toBuffer();
+    fs.writeFileSync(targetPath, buffer);
     return;
 };
