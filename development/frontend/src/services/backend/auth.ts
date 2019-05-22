@@ -37,6 +37,7 @@ export const isUserLoggedIn = async (): Promise<boolean> => {
         Authorization: authHeader
     }});
     return resp.status === 200;
+// tslint:disable-next-line: no-empty
   } catch (ex) {}
   return false;
 };
