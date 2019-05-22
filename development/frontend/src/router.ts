@@ -8,6 +8,9 @@ import Search from './views/Search.vue';
 import { isUserLoggedIn } from './services/backend/auth';
 import Profile from './views/Profile.vue';
 import CategoryListing from './views/CategoryListing.vue';
+import Update from './views/Update.vue';
+
+
 
 Vue.use(Router);
 const router = new Router({
@@ -39,6 +42,11 @@ const router = new Router({
       path: '/publish',
       name: 'publish',
       component: Publish
+    },
+    {
+      path: '/update/:id',
+      name: 'update',
+      component: Update
     },
     {
       path: '/login',
