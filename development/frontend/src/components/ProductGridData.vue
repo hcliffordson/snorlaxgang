@@ -1,5 +1,8 @@
 <template>
-  <ProductGrid v-bind:productCards="listings"/>
+  <ProductGrid v-bind:productCards="listings" v-if="listings != ''"/>
+  <h1 v-else>
+    Inga tillgängliga annonser 😢
+  </h1>
 </template>
 
 <script lang="ts">
