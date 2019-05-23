@@ -18,6 +18,8 @@ import gql from 'graphql-tag';
 import UpdateListing from '@/components/UpdateListing.vue';
 import { GET_LISTING_QUERY } from '../services/backend';
 import {GET_ALL_CATEGORIES_QUERY} from '@/services/backend';
+import {GET_ALL_LISTINGS_QUERY} from '@/services/backend';
+import router from '../router';
 
 export default Vue.extend({
 
@@ -66,8 +68,46 @@ export default Vue.extend({
           price : parseInt(data.price, 10),
           categoryId : data.categoryId
         },
-      }).then((d) => {
-        console.log(d);
+        update: (store, { data: { updateListing } }) => {
+          try {
+            const query = gql`${GET_ALL_LISTINGS_QUERY}`;
+            const cacheData = store.readQuery({query});
+            const updatedCache = cacheData.getAllListings
+              .filter(listing => listing.id !== updateListing.id)
+              .concat(updateListing);
+            store.writeQuery({
+              query,
+              data: {
+                getAllListings: updatedCache
+              }
+            });
+
+
+          } catch (ex) {
+            console.log('No cache existed for all listings');
+          }
+          try {
+            const query = gql`${GET_LISTING_QUERY}`;
+            store.writeQuery({
+              query,
+              variables: {
+                id: updateListing.id
+              },
+              data: {
+                getListing: updateListing
+              }
+            })
+          } catch (ex) {
+            console.log('No cache existed for single item')
+          }
+
+      },
+      }).then((resp) => {
+        router.push({
+          name: 'listingDetail',
+          params: {
+            id: resp.data.updateListing.id
+          }});
       });
     }
   }
