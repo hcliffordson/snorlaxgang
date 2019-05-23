@@ -22,8 +22,10 @@
       <div class="subtitle-is7 has-text-grey-light">Publicerad {{date}}</div>
       <div class="field is-grouped is-grouped-right">
        <p class="control">
+         <router-link :to="'/update/' + $route.params.id">
         <button class="button is-light" v-if="user.firstName==sellerFN && user.surname==sellerSN">Redigera
         </button>
+         </router-link>
        </p>
       </div>
     </div>
