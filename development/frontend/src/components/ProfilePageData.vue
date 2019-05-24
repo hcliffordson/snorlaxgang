@@ -1,6 +1,6 @@
 <template>
   <div>
-    <SearchResultList v-bind:searchResults="myListings" />
+    <SearchResultList v-bind:searchListingResults="myListings" :searchCategoryResults="[]"/>
   </div>
 </template>
 
