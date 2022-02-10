@@ -21,7 +21,7 @@
     "@types/graphql": "^14.2.0",
     "@vue/cli-plugin-typescript": "^3.0.1",
     "@vue/cli-service": "^3.0.1",
-    "node-sass": "^4.9.0",
+    "node-sass": "^7.0.0",
     "sass-loader": "^7.1.0",
     "typescript": "^3.2.1",
     "vue-template-compiler": "^2.5.21"
