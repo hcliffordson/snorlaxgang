@@ -14,7 +14,7 @@
     "multer": "^1.4.1",
     "prisma-binding": "^2.3.8",
     "prisma-client-lib": "^1.28.3",
-    "sharp": "^0.22.1",
+    "sharp": "^0.30.5",
     "shortid": "^2.2.14"
   },
   "devDependencies": {
