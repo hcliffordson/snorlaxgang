@@ -10,7 +10,7 @@
     "dotenv": "^7.0.0",
     "express": "^4.16.4",
     "graphql-import": "^0.7.1",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "multer": "^1.4.1",
     "prisma-binding": "^2.3.8",
     "prisma-client-lib": "^1.28.3",
